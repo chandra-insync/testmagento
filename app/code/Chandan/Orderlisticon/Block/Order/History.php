@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Appseconnect\Salesorderhistory\Block\Order;
+namespace Chandan\Orderlisticon\Block\Order;
 
 use \Magento\Framework\App\ObjectManager;
 use \Magento\Sales\Model\ResourceModel\Order\CollectionFactoryInterface;
