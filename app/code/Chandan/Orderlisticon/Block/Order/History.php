@@ -20,7 +20,7 @@ use \Magento\Sales\Model\ResourceModel\Order\CollectionFactoryInterface;
 
 /**
  * Sales order history block
- * Override this block to render the history.phtml file
+ * Override this block to render the history.phtml file using getTemplate()
  * @api
  * @since 100.0.2
  */
