@@ -3,3 +3,4 @@
         xsi:noNamespaceSchemaLocation = "urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for = "Magento\Sales\Block\Order\History" type = "Chandan\Orderlisticon\Block\Order\History" />
 </config>
+
