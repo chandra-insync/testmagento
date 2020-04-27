@@ -21,6 +21,8 @@ class Info extends \Magento\Customer\Block\Account\Dashboard\Info
      * @var \Magento\Sales\Api\OrderRepositoryInterface
      */
     protected $orderRepository;
+    
+    protected $total;
 
     /**
      * Info constructor.
@@ -61,6 +63,7 @@ class Info extends \Magento\Customer\Block\Account\Dashboard\Info
 
     public function getOrders()
     {
+        $this->total=[];
         if (!($customerId = $this->_customerSession->getCustomerId())) {
             return false;
         }
@@ -79,6 +82,15 @@ class Info extends \Magento\Customer\Block\Account\Dashboard\Info
     public function getOrderItems($order_id)
     {
         return $this->orderRepository->get($order_id);
+    }
+    public function getDifferentSku($order_items)
+    {
+        $Sku = $this->total;
+        foreach ($order_items->getAllVisibleItems() as $key_items => $value_items) {
+            $Sku[] = $value_items->getSku();
+        }
+        $this->total = $Sku;
+        return array_unique($this->total);
     }
     public function getTemplate()
     {

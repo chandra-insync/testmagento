@@ -9,28 +9,16 @@
 <?php $_orders = $block->getOrders();?>
 <?php
 if ($_orders && count($_orders)) {
-    $total=[];
     foreach ($_orders as $_order) {
-        $order_id = $_order->getEntityId();
-        //print "$order_id<br>";
-        $order_items = $block->getOrderItems($order_id);
-        $Sku=$total;
-        foreach ($order_items->getAllVisibleItems() as $key_items => $value_items) {
-            $Sku[] = $value_items->getSku();
-        }
-        $total = $Sku;
-    }
-?>
-<p>Welcome <?= $block->escapeHtml($block->getName()) ?>, so far you have placed <?= /* @escapeNotVerified */ count($_orders) ?> orders.
-    You only check
-    <?php
-    $differentsku = array_unique($total);
-    foreach ($differentsku as $key => $value) {
-        print $value . "&nbsp;";
+        $getDifferentAllSku = $block->getDifferentSku($block->getOrderItems($_order->getEntityId()));
     }
     ?>
-    products. Try placing more you get coupon code for us.</p>
-    <?php } ?>
+    <p>Welcome <?= $block->escapeHtml($block->getName()) ?>, so far you have placed <?= /* @escapeNotVerified */ count($_orders) ?> orders.
+        You only check <?php
+        foreach ($getDifferentAllSku as $key => $value) {
+            print $value . "&nbsp;";
+        }
+        ?> products. Try placing more you get coupon code for us.</p> <?php } ?>
 <div class="block block-dashboard-info">
     <div class="block-title"><strong><?= $block->escapeHtml(__('Account Information')) ?></strong></div>
     <div class="block-content">
