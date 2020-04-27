@@ -1,5 +1,5 @@
 <?php
-namespace Appseconnect\CustomerAccount\Block\Account\Dashboard;
+namespace Chandan\SalesOrderMessageCustomerAccount\Block\Account\Dashboard;
 
 use Magento\Framework\Exception\NoSuchEntityException;
 
