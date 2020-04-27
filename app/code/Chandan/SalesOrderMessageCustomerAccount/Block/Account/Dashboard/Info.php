@@ -21,7 +21,7 @@ class Info extends \Magento\Customer\Block\Account\Dashboard\Info
      * @var \Magento\Sales\Api\OrderRepositoryInterface
      */
     protected $orderRepository;
-    
+
     protected $total;
 
     /**
