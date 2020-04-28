@@ -3,7 +3,6 @@ namespace Chandan\AddtoCartLogin\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Customer\Model\Session;
-use Magento\Framework\Controller\ResultFactory;
 class Redirect implements ObserverInterface
 {
     /**
@@ -44,7 +43,6 @@ class Redirect implements ObserverInterface
     }
 
     /**
-     *
      * @param \Magento\Framework\Event\Observer $observer
      * @return void @codeCoverageIgnore
      */
@@ -54,11 +52,6 @@ class Redirect implements ObserverInterface
             $this->messageManager->addError('Before add to cart You need to login first');
             $redirectionUrl = $this->url->getUrl('customer/account/login');
             $this->responseFactory->create()->setRedirect($redirectionUrl)->sendResponse();
-            /**
-            $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-            $resultRedirect->setUrl($this->_redirect->getRefererUrl());
-            return $resultRedirect;
-             */
             die();
         }
     }
